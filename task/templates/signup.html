@@ -4,7 +4,9 @@
     {% csrf_token %}
 
     {{ form.as_p }}
-
+    
+    {{error}}
+    <br>
     <button>
         Signup
     </button>
