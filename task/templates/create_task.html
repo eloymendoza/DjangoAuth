@@ -2,8 +2,8 @@
 
 {% block content %}
     <h1>Crear Tarea</h1>
-
-    <form action="/task/create/" method="POST">
+    {{error}}
+    <form action="/tasks/create/" method="POST">
     {% csrf_token %}
         {{ form }}
         <button>
