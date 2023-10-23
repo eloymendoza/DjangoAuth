@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
 <h1> Signup  </h1>
 <form action="/signup/" method="POST">
     <!-- ayuda a identificar que nuestro formulario fue creado por nuestro servidor y por otro servidor externo (mediante un token) -->
@@ -12,3 +16,5 @@
     </button>
 
 </form>
+
+{% endblock %}
