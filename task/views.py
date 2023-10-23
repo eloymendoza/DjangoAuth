@@ -39,6 +39,10 @@ def tasks(request):
     tasks = Task.objects.filter(user = request.user, datecompleted__isnull=True)
     return render(request, 'tasks.html', {'tasks': tasks})
 
+def tasks_completed(request):
+    tasks = Task.objects.filter(user = request.user, datecompleted__isnull=False).order_by('-datecompleted')
+    return render(request, 'tasks.html', {'tasks': tasks})
+
 def task_detail(request, task_id):
     if request.method == 'GET':  
         task = get_object_or_404(Task, pk=task_id,user = request.user)
