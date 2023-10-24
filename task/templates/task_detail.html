@@ -1,25 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{task.title}}</h1>
-    {{error}}
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button>
-            Actualizar
-        </button>
-    </form>
-    <form action="{% url 'complete_task' task.id %}" method="POST">
-        {% csrf_token %}
-        <button>
-            Completar
-        </button>
-    </form>
-    <form action="{% url 'delete_task' task.id %}" method="POST">
-        {% csrf_token %}
-        <button>
-            Eliminar
-        </button>
-    </form>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <h1 class="text-secondary">{{task.title}}</h1>
+                <div> 
+                    {{error}}
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="d-grid gap-2 mt-2">
+                            <button class="btn btn-primary">
+                                Actualizar
+                            </button>
+                        </div>
+                    </form>
+
+                    <form action="{% url 'complete_task' task.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2 mt-2">
+                            <button class="btn btn-success">
+                                Completar
+                            </button>
+                        </div>
+                    </form>
+
+                    <form action="{% url 'delete_task' task.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2 mt-2">
+                            <button class="btn btn-danger">
+                                Eliminar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>   
+        </div>
+    </main>
+
 {% endblock %}

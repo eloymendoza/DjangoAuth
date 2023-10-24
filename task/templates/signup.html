@@ -2,19 +2,31 @@
 
 {% block content%}
 
-<h1> Signup  </h1>
-<form action="/signup/" method="POST">
-    <!-- ayuda a identificar que nuestro formulario fue creado por nuestro servidor y por otro servidor externo (mediante un token) -->
-    {% csrf_token %}
-
-    {{ form.as_p }}
-    
-    {{error}}
-    <br>
-    <button>
-        Signup
-    </button>
-
-</form>
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form action="/signup/" method="POST" class="card card-body">
+                {% csrf_token %}
+                <h1 class="text-center"> Signup  </h1>
+                {{error}}
+                <div class="mb-3">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" name="username" id="username" class="form-control" required placeholder="Nombre de usuario">
+                </div>
+                <div class="mb-3">
+                    <label for="password1">Contraseña:</label>
+                    <input type="password" name="password1" id="password1" class="form-control" required placeholder="Contraseña">
+                </div>
+                <div class="mb-3">
+                    <label for="password2">Confirma contraseña:</label>
+                    <input type="password" name="password2" id="password2" class="form-control" required placeholder="Confirma contraseña">
+                </div>
+                <button class="btn btn-primary">
+                    Registrarse
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
 
 {% endblock %}
